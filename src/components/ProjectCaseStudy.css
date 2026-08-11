@@ -1,0 +1,257 @@
+/* ============================================
+   PROJECT CASE STUDY MODAL
+   ============================================ */
+
+.case-study {
+  position: relative;
+}
+
+/* Header */
+.case-study__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 40px 0;
+}
+
+.case-study__label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.case-study__title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.case-study__subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.case-study__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 4px;
+}
+
+.case-study__close:hover {
+  border-color: var(--border-accent);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tags */
+.case-study__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 24px 40px 0;
+}
+
+/* Links */
+.case-study__links {
+  display: flex;
+  gap: 12px;
+  padding: 20px 40px 0;
+  flex-wrap: wrap;
+}
+
+.case-study__link {
+  font-size: 13px;
+  padding: 9px 18px;
+}
+
+.case-study__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 32px 40px 0;
+}
+
+/* Body */
+.case-study__body {
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Section */
+.case-study__section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-study__section p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.case-study__section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.case-study__section-title svg {
+  color: var(--accent);
+}
+
+.icon-problem { color: #f87171 !important; }
+.icon-solution { color: #34d399 !important; }
+
+/* Two column */
+.case-study__two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.case-study__problem .case-study__section-title { color: #f87171; }
+.case-study__solution .case-study__section-title { color: #34d399; }
+
+/* List */
+.case-study__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-study__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.case-study__list-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.case-study__list-item--ai {
+  color: #a5b4fc;
+}
+
+.case-study__list-dot--ai {
+  background: var(--accent-2);
+  box-shadow: 0 0 6px var(--accent-2);
+}
+
+/* Architecture */
+.case-study__arch {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  overflow-x: auto;
+}
+
+.case-study__arch code {
+  font-family: 'SF Mono', 'Fira Code', 'Monaco', monospace;
+  font-size: 13px;
+  color: #a5b4fc;
+  white-space: nowrap;
+}
+
+/* Tech Grid */
+.case-study__tech-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-study__tech-category {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.case-study__tech-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.case-study__tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .case-study__header,
+  .case-study__tags,
+  .case-study__links,
+  .case-study__body {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .case-study__divider {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .case-study__two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study__title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-study__header,
+  .case-study__tags,
+  .case-study__links,
+  .case-study__body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .case-study__divider {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+export const certifications = [
+  {
+    id: 'oci-ai-foundation',
+    title: 'OCI AI Foundation',
+    provider: 'Oracle',
+    providerShort: 'Oracle Cloud',
+    description: 'Foundational certification in Oracle Cloud Infrastructure AI services, covering AI concepts, ML models, and Oracle AI offerings.',
+    credential: '',
+    verifyUrl: 'https://drive.google.com/file/d/15t8jxmq1632jVqjGWeTGlCSGOWQOEwWc/view?usp=sharing',
+    year: '2024',
+  },
+  {
+    id: 'oracle-fusion-ai-agent-studio',
+    title: 'Oracle Fusion AI Agent Studio',
+    provider: 'Oracle',
+    providerShort: 'Oracle Fusion',
+    description: 'Certification in building and deploying AI agents using Oracle Fusion AI Agent Studio for enterprise automation.',
+    credential: '',
+    verifyUrl: 'https://drive.google.com/file/d/15t8jxmq1632jVqjGWeTGlCSGOWQOEwWc/view?usp=sharing',
+    year: '2024',
+  },
+  {
+    id: 'cisco-data-science',
+    title: 'Cisco Data Science Certificate',
+    provider: 'Cisco',
+    providerShort: 'Cisco',
+    description: 'Professional certification in data science fundamentals, data analytics, machine learning algorithms, and data visualization by Cisco.',
+    credential: '',
+    verifyUrl: 'https://drive.google.com/file/d/1A4Kp2QYlzWZZJXV87qrVNAL-tDuLUHkZ/view',
+    year: '2024',
+  },
+];

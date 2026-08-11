@@ -1,0 +1,138 @@
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition);
+}
+
+.footer__logo:hover {
+  opacity: 0.8;
+}
+
+.footer__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.footer__tagline {
+  font-size: 13px;
+  color: var(--text-subtle);
+  padding-left: 42px;
+}
+
+/* Nav links */
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.footer__link {
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Socials */
+.footer__socials {
+  display: flex;
+  gap: 8px;
+}
+
+/* Divider */
+.footer__divider {
+  margin: 0;
+}
+
+/* Bottom */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  font-size: 13px;
+  color: var(--text-subtle);
+}
+
+.footer__back-top {
+  background: transparent;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  cursor: pointer;
+  transition: color var(--transition);
+  padding: 0;
+}
+
+.footer__back-top:hover {
+  color: var(--accent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .footer__top {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer__links {
+    order: 3;
+  }
+
+  .footer__socials {
+    order: 2;
+  }
+}

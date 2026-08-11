@@ -1,0 +1,40 @@
+/* ============================================
+   APP GLOBAL
+   ============================================ */
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+#main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--radius);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Section divider — subtle gradient line between sections */
+.section-sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 auto;
+  max-width: 800px;
+}

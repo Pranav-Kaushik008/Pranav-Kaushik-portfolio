@@ -1,0 +1,150 @@
+/* ============================================
+   CONTACT
+   ============================================ */
+
+/* Hero CTA */
+.contact__hero {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.contact__hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.contact__headline {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.contact__sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Cards Box Wrapper */
+.contact__card-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.contact-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: var(--surface-2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.08);
+}
+
+.contact-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.contact-card__icon--email {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+}
+
+.contact-card__icon--linkedin {
+  background: rgba(10, 102, 194, 0.12);
+  border-color: rgba(10, 102, 194, 0.25);
+  color: #38bdf8;
+}
+
+.contact-card__icon--github {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #F8FAFC;
+}
+
+.contact-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.contact-card__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.contact-card__value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.contact-card__arrow {
+  color: var(--text-subtle);
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.contact-card:hover .contact-card__arrow {
+  transform: translate(3px, -3px);
+  color: var(--accent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .contact__headline {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  .contact-card {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+
+  .contact-card__value {
+    font-size: 14px;
+  }
+}

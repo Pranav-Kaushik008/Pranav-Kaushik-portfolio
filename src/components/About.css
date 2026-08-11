@@ -1,0 +1,138 @@
+/* ============================================
+   ABOUT
+   ============================================ */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about__heading {
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.about__bio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.about__bio p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.about__focus {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__focus-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cards Grid */
+.about__cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about__card {
+  position: relative;
+  padding: 24px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.about__card:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.06);
+}
+
+.about__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.about__card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.about__card-description {
+  font-size: 12px;
+  color: var(--text-subtle);
+  line-height: 1.6;
+}
+
+.about__card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.about__card:hover .about__card-accent {
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .about__grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about__visual {
+    order: -1;
+  }
+
+  .about__heading {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .about__card {
+    padding: 18px;
+  }
+}

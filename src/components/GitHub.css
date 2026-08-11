@@ -1,0 +1,152 @@
+/* ============================================
+   GITHUB
+   ============================================ */
+
+.github__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.github__heading {
+  margin-bottom: 20px;
+}
+
+.github__description {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 360px;
+  margin-bottom: 32px;
+}
+
+.github__cta {
+  align-self: flex-start;
+}
+
+/* Right side */
+.github__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.github__stats-note {
+  padding: 16px 20px;
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px dashed rgba(99, 102, 241, 0.2);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.github__stats-note p {
+  font-size: 12px;
+  color: var(--text-subtle);
+  line-height: 1.5;
+}
+
+/* Repos */
+.github__repos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Repo Card */
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.repo-card:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  background: var(--surface-2);
+  transform: translateX(4px);
+}
+
+.repo-card:hover .repo-card__arrow {
+  transform: translateX(4px);
+}
+
+.repo-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-card__icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.repo-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.repo-card__arrow {
+  color: var(--text-subtle);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.repo-card__description {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-subtle);
+}
+
+.repo-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.repo-card__lang,
+.repo-card__stars,
+.repo-card__forks {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-subtle);
+}
+
+.repo-card__lang-dot {
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .github__grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .github__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .github__description {
+    max-width: 100%;
+  }
+}
