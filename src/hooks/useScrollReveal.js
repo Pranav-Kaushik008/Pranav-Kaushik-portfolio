@@ -49,26 +49,32 @@ export function useActiveSection(sectionIds) {
   const activeSection = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            activeSection.current = entry.target.id;
-            window.dispatchEvent(
-              new CustomEvent('sectionchange', { detail: entry.target.id })
-            );
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140; // Navbar offset
+
+      let currentSection = '';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            currentSection = id;
           }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-80px 0px -30% 0px' }
-    );
+        }
+      }
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+      if (currentSection && activeSection.current !== currentSection) {
+        activeSection.current = currentSection;
+        window.dispatchEvent(
+          new CustomEvent('sectionchange', { detail: currentSection })
+        );
+      }
+    };
 
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionIds]);
 
   return activeSection;

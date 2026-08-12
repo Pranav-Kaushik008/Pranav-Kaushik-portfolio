@@ -5,6 +5,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Certifications from './components/Certifications';
 import GitHub from './components/GitHub';
 import Contact from './components/Contact';
@@ -12,7 +13,7 @@ import Footer from './components/Footer';
 import { useScrollReveal, useActiveSection } from './hooks/useScrollReveal';
 import './App.css';
 
-const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'certifications', 'github', 'contact'];
+const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'certifications', 'github', 'contact'];
 
 export default function App() {
   // Initialize scroll reveal
@@ -36,6 +37,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
+        <Education />
         <Certifications />
         <GitHub />
         <Contact />
