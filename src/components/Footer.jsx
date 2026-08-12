@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="footer" role="contentinfo">
       <div className="container footer__inner">
         {/* Top */}
-        <div className="footer__top">
+        {/* <div className="footer__top">
           <div className="footer__brand">
             <button
               className="footer__logo"
@@ -68,7 +68,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="divider footer__divider" />
+        <div className="divider footer__divider" /> */}
 
         {/* Bottom */}
         <div className="footer__bottom">
