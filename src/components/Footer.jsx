@@ -11,65 +11,7 @@ export default function Footer() {
   return (
     <footer className="footer" role="contentinfo">
       <div className="container footer__inner">
-        {/* Top */}
-        {/* <div className="footer__top">
-          <div className="footer__brand">
-            <button
-              className="footer__logo"
-              onClick={scrollToTop}
-              aria-label="Back to top"
-            >
-              <span className="navbar__logo-mark">PK</span>
-              <span className="footer__name">{profile.name}</span>
-            </button>
-            <p className="footer__tagline">
-              AI/ML Engineer • Software Developer
-            </p>
-          </div>
-
-          <nav className="footer__links" aria-label="Footer navigation">
-            {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="footer__link"
-              >
-                {link}
-              </a>
-            ))}
-          </nav>
-
-          <div className="footer__socials">
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="GitHub"
-            >
-              <GithubIcon />
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="social-link"
-              aria-label="Email"
-            >
-              <MailIcon />
-            </a>
-          </div>
-        </div>
-
-        <div className="divider footer__divider" /> */}
-
+         
         {/* Bottom */}
         <div className="footer__bottom">
           <p className="footer__copy">

@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -36,6 +37,7 @@ export default function Navbar() {
     }
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
+
 
   const handleNavClick = (e, href) => {
     e.preventDefault();

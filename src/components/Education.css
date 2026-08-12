@@ -1,0 +1,407 @@
+.education-section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.education-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.education-header {
+  max-width: 720px;
+  margin-bottom: 52px;
+}
+
+.education-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  color: #818cf8;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.education-header h2 {
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.education-header h2 span {
+  color: #6366f1;
+}
+
+.education-header p {
+  margin: 20px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.education-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.72),
+      rgba(7, 10, 18, 0.88)
+    );
+
+  backdrop-filter: blur(16px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(99, 102, 241, 0.38);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(99, 102, 241, 0.08);
+}
+
+/* =========================
+   CARD GLOW
+========================= */
+
+.education-card-glow {
+  position: absolute;
+
+  top: -100px;
+  right: -100px;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   CARD INNER
+========================= */
+
+.education-card-inner {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding: 38px;
+}
+
+/* =========================
+   EDUCATION INFO
+========================= */
+
+.education-info {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 24px;
+
+  min-width: 0;
+}
+
+.education-badge {
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  height: 72px;
+
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.18),
+      rgba(79, 70, 229, 0.06)
+    );
+
+  color: #a5b4fc;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  box-shadow:
+    inset 0 0 20px rgba(99, 102, 241, 0.04);
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.education-details {
+  min-width: 0;
+}
+
+.education-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 12px;
+
+  padding: 5px 10px;
+
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 999px;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  color: #a5b4fc;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.education-details h3 {
+  margin: 0;
+
+  color: #f8fafc;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+.education-details h4 {
+  margin: 7px 0 0;
+
+  color: #cbd5e1;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.education-institution {
+  margin: 10px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   CGPA
+========================= */
+
+.education-metric {
+  flex-shrink: 0;
+
+  min-width: 190px;
+
+  padding: 22px 28px;
+
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 18px;
+
+  background: rgba(99, 102, 241, 0.06);
+
+  text-align: center;
+}
+
+.metric-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #94a3b8;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.education-metric strong {
+  display: block;
+
+  color: #f8fafc;
+
+  font-size: 1.7rem;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+}
+
+.metric-caption {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #64748b;
+
+  font-size: 0.72rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .education-card-inner {
+    gap: 28px;
+    padding: 30px;
+  }
+
+  .education-metric {
+    min-width: 160px;
+    padding: 20px;
+  }
+
+  .education-details h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 680px) {
+  .education-section {
+    padding: 90px 0;
+  }
+
+  .education-container {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .education-header {
+    margin-bottom: 36px;
+  }
+
+  .education-card-inner {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 28px;
+
+    padding: 24px;
+  }
+
+  .education-info {
+    gap: 18px;
+  }
+
+  .education-badge {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 15px;
+
+    font-size: 1rem;
+  }
+
+  .education-details h3 {
+    font-size: 1.2rem;
+  }
+
+  .education-details h4 {
+    font-size: 0.92rem;
+  }
+
+  .education-institution {
+    font-size: 0.88rem;
+  }
+
+  .education-metric {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 420px) {
+  .education-section {
+    padding: 72px 0;
+  }
+
+  .education-card-inner {
+    padding: 20px;
+  }
+
+  .education-info {
+    align-items: flex-start;
+  }
+
+  .education-badge {
+    width: 54px;
+    height: 54px;
+
+    font-size: 0.9rem;
+  }
+
+  .education-status {
+    font-size: 0.62rem;
+  }
+}
