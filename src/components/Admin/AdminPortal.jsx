@@ -523,7 +523,7 @@ export default function AdminPortal({ onBackToSite }) {
                     setProjectsList(updatedList);
                   }}
                 >
-                  <Plus size={16} /> Add New Project (To Top)
+                  <Plus size={16} /> Add New Project
                 </button>
               </div>
 
@@ -625,7 +625,6 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Title</label>
                         <input
                           type="text"
-                          placeholder="e.g. IntelliProcure AI"
                           value={proj.title}
                           onFocus={(e) => {
                             if (e.target.value === 'New Intelligent Application') {
@@ -646,7 +645,6 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Subtitle</label>
                         <input
                           type="text"
-                          placeholder="e.g. Intelligent Procurement Platform"
                           value={proj.subtitle}
                           onFocus={(e) => {
                             if (e.target.value === 'AI/ML System') {
@@ -667,7 +665,6 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Short Description</label>
                         <textarea
                           rows={2}
-                          placeholder="Enter project description here..."
                           value={proj.description}
                           onFocus={(e) => {
                             if (e.target.value === 'Project description here...') {
@@ -688,7 +685,6 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>GitHub Repository URL</label>
                         <input
                           type="url"
-                          placeholder="https://github.com/Pranav-Kaushik008/..."
                           value={proj.github || ''}
                           onChange={(e) => {
                             const updated = [...projectsList];
@@ -703,7 +699,6 @@ export default function AdminPortal({ onBackToSite }) {
                         <input
                           type="url"
                           value={proj.demo || ''}
-                          placeholder="https://..."
                           onChange={(e) => {
                             const updated = [...projectsList];
                             updated[idx].demo = e.target.value || null;
@@ -713,10 +708,9 @@ export default function AdminPortal({ onBackToSite }) {
                       </div>
 
                       <div className="admin-form-group admin-form-group--full">
-                        <label>Tags (Comma separated, e.g. Python, FastAPI, React)</label>
+                        <label>Tags (Comma separated)</label>
                         <input
                           type="text"
-                          placeholder="e.g. Python, FastAPI, React, LLMs"
                           value={proj.rawTags !== undefined ? proj.rawTags : (proj.tags ? proj.tags.join(', ') : '')}
                           onChange={(e) => {
                             const raw = e.target.value;
@@ -860,10 +854,9 @@ export default function AdminPortal({ onBackToSite }) {
                   <div key={cat.id} className="admin-card">
                     <h3 className="admin-card__category-title">{cat.label}</h3>
                     <div className="admin-form-group admin-form-group--full">
-                      <label>Skills list (Comma separated, e.g. Python, Java, SQL)</label>
+                      <label>Skills list (Comma separated)</label>
                       <input
                         type="text"
-                        placeholder="e.g. Python, Java, SQL"
                         value={cat.rawSkills !== undefined ? cat.rawSkills : cat.skills.map((s) => (typeof s === 'string' ? s : s.name)).join(', ')}
                         onChange={(e) => {
                           const raw = e.target.value;
