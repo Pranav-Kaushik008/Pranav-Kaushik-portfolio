@@ -102,8 +102,8 @@ export const projects = [
   {
     id: 'fraudshield-ai',
     number: '03',
-    featured: false,
-    label: 'PROJECT',
+    featured: true,
+    label: 'FEATURED PROJECT',
     title: 'FraudShield AI',
     subtitle: 'Fraud Detection & Explainability Platform',
     description:
@@ -152,8 +152,8 @@ export const projects = [
   {
     id: 'ai-resume-screening',
     number: '04',
-    featured: false,
-    label: 'PROJECT',
+    featured: true,
+    label: 'FEATURED PROJECT',
     title: 'AI Resume Screening Agent',
     subtitle: 'Semantic Resume Analysis System',
     description:

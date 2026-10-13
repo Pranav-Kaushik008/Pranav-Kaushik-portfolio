@@ -371,9 +371,6 @@ function GithubIconSmall() {
 export default function Projects() {
   const [caseStudyProject, setCaseStudyProject] = useState(null);
 
-  const featuredProjects = projects.filter((p) => p.featured);
-  const otherProjects = projects.filter((p) => !p.featured);
-
   return (
     <>
       <section className="projects section" id="projects" aria-label="Projects">
@@ -386,9 +383,9 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Featured Projects */}
+          {/* All Projects in large showcase card layout */}
           <div className="projects__featured">
-            {featuredProjects.map((project, i) => (
+            {projects.map((project, i) => (
               <FeaturedProjectCard
                 key={project.id}
                 project={project}
@@ -397,19 +394,6 @@ export default function Projects() {
               />
             ))}
           </div>
-
-          {/* Other Projects */}
-          {otherProjects.length > 0 && (
-            <div className="projects__grid">
-              {otherProjects.map((project) => (
-                <SmallProjectCard
-                  key={project.id}
-                  project={project}
-                  onCaseStudy={setCaseStudyProject}
-                />
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
