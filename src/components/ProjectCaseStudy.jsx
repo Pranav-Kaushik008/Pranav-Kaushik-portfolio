@@ -44,7 +44,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
 
         {/* Tags */}
         <div className="case-study__tags">
-          {project.tags.map((tag) => (
+          {(project.tags || []).map((tag) => (
             <span key={tag} className="chip chip-neutral">{tag}</span>
           ))}
         </div>
@@ -115,7 +115,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
               Key Features
             </h3>
             <ul className="case-study__list">
-              {project.keyFeatures.map((f) => (
+              {(project.keyFeatures || []).map((f) => (
                 <li key={f} className="case-study__list-item">
                   <span className="case-study__list-dot" />
                   {f}
@@ -142,7 +142,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
               AI / ML Components
             </h3>
             <ul className="case-study__list">
-              {project.aiComponents.map((c) => (
+              {(project.aiComponents || []).map((c) => (
                 <li key={c} className="case-study__list-item case-study__list-item--ai">
                   <span className="case-study__list-dot case-study__list-dot--ai" />
                   {c}
@@ -158,11 +158,11 @@ export default function ProjectCaseStudy({ project, onClose }) {
               Technology Stack
             </h3>
             <div className="case-study__tech-grid">
-              {project.techStack.map((cat) => (
+              {(project.techStack || []).map((cat) => (
                 <div key={cat.category} className="case-study__tech-category">
                   <span className="case-study__tech-label">{cat.category}</span>
                   <div className="case-study__tech-chips">
-                    {cat.items.map((item) => (
+                    {(cat.items || []).map((item) => (
                       <span key={item} className="chip">{item}</span>
                     ))}
                   </div>
@@ -179,7 +179,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
                 Challenges
               </h3>
               <ul className="case-study__list">
-                {project.challenges.map((c) => (
+                {(project.challenges || []).map((c) => (
                   <li key={c} className="case-study__list-item">
                     <span className="case-study__list-dot" />
                     {c}
@@ -194,7 +194,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
                 What I Learned
               </h3>
               <ul className="case-study__list">
-                {project.learnings.map((l) => (
+                {(project.learnings || []).map((l) => (
                   <li key={l} className="case-study__list-item">
                     <span className="case-study__list-dot" />
                     {l}
@@ -211,7 +211,7 @@ export default function ProjectCaseStudy({ project, onClose }) {
               Future Improvements
             </h3>
             <ul className="case-study__list">
-              {project.futureImprovements.map((f) => (
+              {(project.futureImprovements || []).map((f) => (
                 <li key={f} className="case-study__list-item">
                   <span className="case-study__list-dot" />
                   {f}

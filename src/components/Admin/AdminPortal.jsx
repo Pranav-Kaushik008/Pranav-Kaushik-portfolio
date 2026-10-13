@@ -142,7 +142,14 @@ export default function AdminPortal({ onBackToSite }) {
       });
 
       // 2. Commit projects.js
-      const projectsCode = `export const projects = ${JSON.stringify(projectsList, null, 2)};\n`;
+      const cleanedProjects = projectsList.map((p, idx) => {
+        const { rawTags, ...cleanProj } = p;
+        return {
+          ...cleanProj,
+          number: cleanProj.number || String(idx + 1).padStart(2, '0'),
+        };
+      });
+      const projectsCode = `export const projects = ${JSON.stringify(cleanedProjects, null, 2)};\n`;
       await commitFileToGitHub({
         filePath: 'src/data/projects.js',
         content: projectsCode,
@@ -151,7 +158,11 @@ export default function AdminPortal({ onBackToSite }) {
       });
 
       // 3. Commit experience.js
-      const experienceCode = `export const experiences = ${JSON.stringify(experiencesList, null, 2)};\n`;
+      const cleanedExperiences = experiencesList.map((exp) => {
+        const { rawResponsibilities, ...cleanExp } = exp;
+        return cleanExp;
+      });
+      const experienceCode = `export const experiences = ${JSON.stringify(cleanedExperiences, null, 2)};\n`;
       await commitFileToGitHub({
         filePath: 'src/data/experience.js',
         content: experienceCode,
@@ -178,7 +189,11 @@ export default function AdminPortal({ onBackToSite }) {
       });
 
       // 6. Commit skills.js
-      const skillsCode = `export const skillCategories = ${JSON.stringify(skillsList, null, 2)};\n`;
+      const cleanedSkills = skillsList.map((cat) => {
+        const { rawSkills, ...cleanCat } = cat;
+        return cleanCat;
+      });
+      const skillsCode = `export const skillCategories = ${JSON.stringify(cleanedSkills, null, 2)};\n`;
       await commitFileToGitHub({
         filePath: 'src/data/skills.js',
         content: skillsCode,
@@ -481,55 +496,144 @@ export default function AdminPortal({ onBackToSite }) {
                   onClick={() => {
                     const newProj = {
                       id: `project-${Date.now()}`,
-                      number: `0${projectsList.length + 1}`,
-                      featured: false,
-                      label: 'PROJECT',
-                      title: 'New Intelligent Application',
-                      subtitle: 'AI/ML System',
-                      description: 'Project description here...',
-                      longDescription: 'Extended overview of what this project achieves...',
-                      tags: ['Python', 'FastAPI', 'React'],
-                      github: 'https://github.com/Pranav-Kaushik008',
+                      number: '01',
+                      featured: true,
+                      label: 'FEATURED PROJECT',
+                      title: '',
+                      subtitle: '',
+                      description: '',
+                      longDescription: '',
+                      tags: [],
+                      rawTags: '',
+                      github: '',
                       demo: null,
                       caseStudy: true,
-                      problem: 'Problem statement...',
-                      solution: 'Solution approach...',
-                      keyFeatures: ['Feature 1', 'Feature 2'],
-                      architecture: 'Frontend → Backend API → AI Service',
-                      aiComponents: ['LLM Pipeline', 'Model Serving'],
-                      techStack: [{ category: 'Backend', items: ['Python'] }],
+                      problem: '',
+                      solution: '',
+                      keyFeatures: [],
+                      architecture: '',
+                      aiComponents: [],
+                      techStack: [],
                     };
-                    setProjectsList([...projectsList, newProj]);
+                    // Place new project at the TOP and renumber all projects
+                    const updatedList = [newProj, ...projectsList].map((p, i) => ({
+                      ...p,
+                      number: String(i + 1).padStart(2, '0'),
+                    }));
+                    setProjectsList(updatedList);
                   }}
                 >
-                  <Plus size={16} /> Add New Project
+                  <Plus size={16} /> Add New Project (To Top)
                 </button>
               </div>
 
               <div className="admin-cards-list">
                 {projectsList.map((proj, idx) => (
-                  <div key={proj.id} className="admin-card">
+                  <div
+                    key={proj.id}
+                    className="admin-card"
+                    onClick={() => {
+                      // Erase template placeholders when clicking the card layout
+                      if (
+                        proj.description === 'Project description here...' ||
+                        proj.title === 'New Intelligent Application' ||
+                        proj.subtitle === 'AI/ML System'
+                      ) {
+                        const updated = [...projectsList];
+                        if (updated[idx].description === 'Project description here...') updated[idx].description = '';
+                        if (updated[idx].title === 'New Intelligent Application') updated[idx].title = '';
+                        if (updated[idx].subtitle === 'AI/ML System') updated[idx].subtitle = '';
+                        setProjectsList(updated);
+                      }
+                    }}
+                  >
                     <div className="admin-card__header">
                       <div className="admin-card__title-row">
                         <span className="chip chip-neutral">{proj.number || `0${idx + 1}`}</span>
-                        <h3>{proj.title}</h3>
+                        <h3>{proj.title || 'New Project'}</h3>
                         {proj.featured && <span className="chip chip-primary">Featured</span>}
                       </div>
-                      <button
-                        onClick={() => setProjectsList(projectsList.filter((_, i) => i !== idx))}
-                        className="admin-card__delete-btn"
-                        title="Delete Project"
-                      >
-                        <Trash2 size={16} />
-                      </button>
+                      <div className="admin-card__actions-row">
+                        {idx > 0 && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const updated = [...projectsList];
+                              const temp = updated[idx];
+                              updated[idx] = updated[idx - 1];
+                              updated[idx - 1] = temp;
+                              setProjectsList(updated.map((p, i) => ({ ...p, number: String(i + 1).padStart(2, '0') })));
+                            }}
+                            className="admin-card__order-btn"
+                            title="Move to top"
+                          >
+                            ↑ Up
+                          </button>
+                        )}
+                        {idx < projectsList.length - 1 && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const updated = [...projectsList];
+                              const temp = updated[idx];
+                              updated[idx] = updated[idx + 1];
+                              updated[idx + 1] = temp;
+                              setProjectsList(updated.map((p, i) => ({ ...p, number: String(i + 1).padStart(2, '0') })));
+                            }}
+                            className="admin-card__order-btn"
+                            title="Move down"
+                          >
+                            ↓ Down
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const updated = projectsList.filter((_, i) => i !== idx).map((p, i) => ({
+                              ...p,
+                              number: String(i + 1).padStart(2, '0'),
+                            }));
+                            setProjectsList(updated);
+                          }}
+                          className="admin-card__delete-btn"
+                          title="Delete Project"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
                     </div>
+
+                    <label className="admin-toggle-featured">
+                      <input
+                        type="checkbox"
+                        checked={!!proj.featured}
+                        onChange={(e) => {
+                          const updated = [...projectsList];
+                          updated[idx].featured = e.target.checked;
+                          updated[idx].label = e.target.checked ? 'FEATURED PROJECT' : 'PROJECT';
+                          setProjectsList(updated);
+                        }}
+                      />
+                      <span>Featured Showcase (Displays in large card at the top of Selected Work)</span>
+                    </label>
 
                     <div className="admin-form-grid">
                       <div className="admin-form-group">
                         <label>Title</label>
                         <input
                           type="text"
+                          placeholder="e.g. IntelliProcure AI"
                           value={proj.title}
+                          onFocus={(e) => {
+                            if (e.target.value === 'New Intelligent Application') {
+                              const updated = [...projectsList];
+                              updated[idx].title = '';
+                              setProjectsList(updated);
+                            }
+                          }}
                           onChange={(e) => {
                             const updated = [...projectsList];
                             updated[idx].title = e.target.value;
@@ -542,7 +646,15 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Subtitle</label>
                         <input
                           type="text"
+                          placeholder="e.g. Intelligent Procurement Platform"
                           value={proj.subtitle}
+                          onFocus={(e) => {
+                            if (e.target.value === 'AI/ML System') {
+                              const updated = [...projectsList];
+                              updated[idx].subtitle = '';
+                              setProjectsList(updated);
+                            }
+                          }}
                           onChange={(e) => {
                             const updated = [...projectsList];
                             updated[idx].subtitle = e.target.value;
@@ -555,7 +667,15 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Short Description</label>
                         <textarea
                           rows={2}
+                          placeholder="Enter project description here..."
                           value={proj.description}
+                          onFocus={(e) => {
+                            if (e.target.value === 'Project description here...') {
+                              const updated = [...projectsList];
+                              updated[idx].description = '';
+                              setProjectsList(updated);
+                            }
+                          }}
                           onChange={(e) => {
                             const updated = [...projectsList];
                             updated[idx].description = e.target.value;
@@ -568,6 +688,7 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>GitHub Repository URL</label>
                         <input
                           type="url"
+                          placeholder="https://github.com/Pranav-Kaushik008/..."
                           value={proj.github || ''}
                           onChange={(e) => {
                             const updated = [...projectsList];
@@ -592,14 +713,24 @@ export default function AdminPortal({ onBackToSite }) {
                       </div>
 
                       <div className="admin-form-group admin-form-group--full">
-                        <label>Tags (Comma separated)</label>
+                        <label>Tags (Comma separated, e.g. Python, FastAPI, React)</label>
                         <input
                           type="text"
-                          value={proj.tags ? proj.tags.join(', ') : ''}
+                          placeholder="e.g. Python, FastAPI, React, LLMs"
+                          value={proj.rawTags !== undefined ? proj.rawTags : (proj.tags ? proj.tags.join(', ') : '')}
                           onChange={(e) => {
+                            const raw = e.target.value;
                             const updated = [...projectsList];
-                            updated[idx].tags = e.target.value.split(',').map((t) => t.trim()).filter(Boolean);
+                            updated[idx].rawTags = raw;
+                            updated[idx].tags = raw.split(',').map((t) => t.trim()).filter(Boolean);
                             setProjectsList(updated);
+                          }}
+                          onBlur={() => {
+                            const updated = [...projectsList];
+                            if (updated[idx].rawTags !== undefined) {
+                              updated[idx].rawTags = (updated[idx].tags || []).join(', ');
+                              setProjectsList(updated);
+                            }
                           }}
                         />
                       </div>
@@ -691,11 +822,21 @@ export default function AdminPortal({ onBackToSite }) {
                         <label>Key Responsibilities (One per line)</label>
                         <textarea
                           rows={4}
-                          value={exp.responsibilities ? exp.responsibilities.join('\n') : ''}
+                          placeholder="Enter responsibilities (one per line)..."
+                          value={exp.rawResponsibilities !== undefined ? exp.rawResponsibilities : (exp.responsibilities ? exp.responsibilities.join('\n') : '')}
                           onChange={(e) => {
+                            const raw = e.target.value;
                             const updated = [...experiencesList];
-                            updated[idx].responsibilities = e.target.value.split('\n').filter((l) => l.trim().length > 0);
+                            updated[idx].rawResponsibilities = raw;
+                            updated[idx].responsibilities = raw.split('\n').filter((l) => l.trim().length > 0);
                             setExperiencesList(updated);
+                          }}
+                          onBlur={() => {
+                            const updated = [...experiencesList];
+                            if (updated[idx].rawResponsibilities !== undefined) {
+                              updated[idx].rawResponsibilities = (updated[idx].responsibilities || []).join('\n');
+                              setExperiencesList(updated);
+                            }
                           }}
                         />
                       </div>
@@ -719,15 +860,25 @@ export default function AdminPortal({ onBackToSite }) {
                   <div key={cat.id} className="admin-card">
                     <h3 className="admin-card__category-title">{cat.label}</h3>
                     <div className="admin-form-group admin-form-group--full">
-                      <label>Skills list (Comma separated)</label>
+                      <label>Skills list (Comma separated, e.g. Python, Java, SQL)</label>
                       <input
                         type="text"
-                        value={cat.skills.map((s) => (typeof s === 'string' ? s : s.name)).join(', ')}
+                        placeholder="e.g. Python, Java, SQL"
+                        value={cat.rawSkills !== undefined ? cat.rawSkills : cat.skills.map((s) => (typeof s === 'string' ? s : s.name)).join(', ')}
                         onChange={(e) => {
+                          const raw = e.target.value;
                           const updated = [...skillsList];
-                          const names = e.target.value.split(',').map((n) => n.trim()).filter(Boolean);
+                          updated[idx].rawSkills = raw;
+                          const names = raw.split(',').map((n) => n.trim()).filter(Boolean);
                           updated[idx].skills = names.map((name) => ({ name, level: 'proficient' }));
                           setSkillsList(updated);
+                        }}
+                        onBlur={() => {
+                          const updated = [...skillsList];
+                          if (updated[idx].rawSkills !== undefined) {
+                            updated[idx].rawSkills = updated[idx].skills.map((s) => (typeof s === 'string' ? s : s.name)).join(', ');
+                            setSkillsList(updated);
+                          }
                         }}
                       />
                     </div>

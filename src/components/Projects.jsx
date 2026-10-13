@@ -211,7 +211,28 @@ function ProjectPreview({ id }) {
     );
   }
 
-  return null;
+  // Default preview visual for newly created projects
+  return (
+    <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" className="project-preview-svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="default-proj-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#6366F1" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.06" />
+        </linearGradient>
+      </defs>
+      <rect width="480" height="300" fill="url(#default-proj-grad)" rx="12" />
+      <rect x="24" y="24" width="432" height="252" rx="8" fill="rgba(13,17,23,0.85)" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+      <rect x="48" y="48" width="180" height="12" rx="6" fill="#6366F1" opacity="0.8" />
+      <rect x="48" y="76" width="260" height="8" rx="4" fill="rgba(255,255,255,0.2)" />
+      <rect x="48" y="100" width="340" height="6" rx="3" fill="rgba(255,255,255,0.1)" />
+      <rect x="48" y="116" width="300" height="6" rx="3" fill="rgba(255,255,255,0.08)" />
+      <rect x="48" y="132" width="240" height="6" rx="3" fill="rgba(255,255,255,0.06)" />
+      <rect x="48" y="164" width="100" height="24" rx="12" fill="rgba(99,102,241,0.15)" stroke="rgba(99,102,241,0.3)" strokeWidth="0.5" />
+      <text x="62" y="180" fontFamily="Inter, sans-serif" fontSize="9" fill="#a5b4fc" fontWeight="600">⚡ AI SYSTEM</text>
+      <circle cx="370" cy="190" r="45" fill="rgba(99,102,241,0.08)" stroke="#6366F1" strokeWidth="1" strokeDasharray="4 4" />
+      <circle cx="370" cy="190" r="24" fill="rgba(139,92,246,0.15)" stroke="#8B5CF6" strokeWidth="1" />
+    </svg>
+  );
 }
 
 function FeaturedProjectCard({ project, onCaseStudy, isReversed }) {
@@ -231,7 +252,7 @@ function FeaturedProjectCard({ project, onCaseStudy, isReversed }) {
         <p className="featured-project__description">{project.description}</p>
 
         <div className="featured-project__tags">
-          {project.tags.map((tag) => (
+          {(project.tags || []).map((tag) => (
             <span key={tag} className="chip chip-neutral">{tag}</span>
           ))}
         </div>
@@ -321,7 +342,7 @@ function SmallProjectCard({ project, onCaseStudy }) {
       <p className="small-project__description">{project.description}</p>
 
       <div className="small-project__tags">
-        {project.tags.slice(0, 4).map((tag) => (
+        {(project.tags || []).slice(0, 4).map((tag) => (
           <span key={tag} className="chip chip-neutral">{tag}</span>
         ))}
       </div>
