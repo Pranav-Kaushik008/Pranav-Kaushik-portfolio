@@ -1,67 +1,157 @@
 export const skillCategories = [
   {
-    id: 'programming',
-    label: 'Programming',
-    icon: 'Code2',
-    skills: [
-      { name: 'Python', level: 'expert' },
-      { name: 'Java', level: 'proficient' },
-      { name: 'JavaScript', level: 'proficient' },
-      { name: 'SQL', level: 'proficient' },
-      { name: 'Kotlin', level: 'familiar' },
-      { name: 'Solidity', level: 'familiar' },
-    ],
+    "id": "programming",
+    "label": "Programming",
+    "icon": "Code2",
+    "skills": [
+      {
+        "name": "Python",
+        "level": "expert"
+      },
+      {
+        "name": "Java",
+        "level": "proficient"
+      },
+      {
+        "name": "JavaScript",
+        "level": "proficient"
+      },
+      {
+        "name": "SQL",
+        "level": "proficient"
+      },
+      {
+        "name": "Kotlin",
+        "level": "familiar"
+      },
+      {
+        "name": "Solidity",
+        "level": "familiar"
+      }
+    ]
   },
   {
-    id: 'ai-ml',
-    label: 'AI / ML',
-    icon: 'Brain',
-    skills: [
-      { name: 'Machine Learning', level: 'expert' },
-      { name: 'Deep Learning', level: 'proficient' },
-      { name: 'Generative AI', level: 'expert' },
-      { name: 'LLMs', level: 'expert' },
-      { name: 'AI Agents', level: 'proficient' },
-      { name: 'NLP', level: 'familiar' },
-      { name: 'Prompt Engineering', level: 'expert' },
-    ],
+    "id": "ai-ml",
+    "label": "AI / ML",
+    "icon": "Brain",
+    "skills": [
+      {
+        "name": "Machine Learning",
+        "level": "expert"
+      },
+      {
+        "name": "Deep Learning",
+        "level": "proficient"
+      },
+      {
+        "name": "Generative AI",
+        "level": "expert"
+      },
+      {
+        "name": "LLMs",
+        "level": "expert"
+      },
+      {
+        "name": "AI Agents",
+        "level": "proficient"
+      },
+      {
+        "name": "NLP",
+        "level": "familiar"
+      },
+      {
+        "name": "Prompt Engineering",
+        "level": "expert"
+      }
+    ]
   },
   {
-    id: 'software',
-    label: 'Software',
-    icon: 'Layers',
-    skills: [
-      { name: 'React', level: 'familiar' },
-      { name: 'FastAPI', level: 'proficient' },
-      { name: 'Node.js', level: 'familiar' },
-      { name: 'Express.js', level: 'familiar' },
-      { name: 'REST APIs', level: 'proficient' },
-      { name: 'Streamlit', level: 'familiar' },
-    ],
+    "id": "software",
+    "label": "Software",
+    "icon": "Layers",
+    "skills": [
+      {
+        "name": "React",
+        "level": "familiar"
+      },
+      {
+        "name": "FastAPI",
+        "level": "proficient"
+      },
+      {
+        "name": "Node.js",
+        "level": "familiar"
+      },
+      {
+        "name": "Express.js",
+        "level": "familiar"
+      },
+      {
+        "name": "REST APIs",
+        "level": "proficient"
+      },
+      {
+        "name": "Streamlit",
+        "level": "familiar"
+      }
+    ]
   },
   {
-    id: 'databases',
-    label: 'Databases',
-    icon: 'Database',
-    skills: [
-      { name: 'PostgreSQL', level: 'expert' },
-      { name: 'MongoDB', level: 'familiar' },
-      { name: 'MySQL', level: 'proficient' },
-      { name: 'ChromaDB', level: 'familiar' },
-      { name: 'Room', level: 'familiar' },
-    ],
+    "id": "databases",
+    "label": "Databases",
+    "icon": "Database",
+    "skills": [
+      {
+        "name": "PostgreSQL",
+        "level": "expert"
+      },
+      {
+        "name": "MongoDB",
+        "level": "familiar"
+      },
+      {
+        "name": "MySQL",
+        "level": "proficient"
+      },
+      {
+        "name": "ChromaDB",
+        "level": "familiar"
+      },
+      {
+        "name": "Room",
+        "level": "familiar"
+      }
+    ]
   },
   {
-    id: 'tools',
-    label: 'Tools & DevOps',
-    icon: 'Wrench',
-    skills: [
-      { name: 'Git', level: 'proficient' },
-      { name: 'GitHub', level: 'proficient' },
-      { name: 'Docker', level: 'familiar' },
-      { name: 'MLflow', level: 'proficient' },
-      { name: 'Android Studio', level: 'familiar' },
-      { name: 'SHAP', level: 'proficient' },
-    ],
-  },
+    "id": "tools",
+    "label": "Tools & DevOps",
+    "icon": "Wrench",
+    "skills": [
+      {
+        "name": "Git",
+        "level": "proficient"
+      },
+      {
+        "name": "GitHub",
+        "level": "proficient"
+      },
+      {
+        "name": "Docker",
+        "level": "familiar"
+      },
+      {
+        "name": "MLflow",
+        "level": "proficient"
+      },
+      {
+        "name": "Android Studio",
+        "level": "familiar"
+      },
+      {
+        "name": "SHAP",
+        "level": "proficient"
+      }
+    ]
+  }
 ];

@@ -6,6 +6,43 @@ import './Projects.css';
 
 // SVG preview illustrations for each project
 function ProjectPreview({ id }) {
+  if (id === 'project-1791867763234' || (id && id.toLowerCase().includes('pricemind'))) {
+    return (
+      <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" className="project-preview-svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="price-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#6366F1" stopOpacity="0.08" />
+          </linearGradient>
+        </defs>
+        <rect width="480" height="300" fill="url(#price-grad)" rx="12" />
+        {/* Computer Vision / YOLO Detection Box */}
+        <rect x="24" y="24" width="216" height="252" rx="8" fill="rgba(13,17,23,0.85)" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+        <text x="36" y="48" fontFamily="Inter, sans-serif" fontSize="10" fill="#34d399" fontWeight="700">👁️ YOLO Vision & OCR</text>
+        <rect x="36" y="64" width="86" height="110" rx="4" fill="rgba(255,255,255,0.03)" stroke="#34d399" strokeWidth="1" strokeDasharray="3 3" />
+        <rect x="36" y="64" width="76" height="16" fill="#34d399" rx="2" />
+        <text x="40" y="76" fontFamily="monospace" fontSize="8" fill="#000" fontWeight="700">Product A: $49</text>
+        
+        <rect x="134" y="80" width="94" height="116" rx="4" fill="rgba(255,255,255,0.03)" stroke="#6366F1" strokeWidth="1" strokeDasharray="3 3" />
+        <rect x="134" y="80" width="84" height="16" fill="#6366F1" rx="2" />
+        <text x="138" y="92" fontFamily="monospace" fontSize="8" fill="#fff" fontWeight="700">Competitor: $56</text>
+        <rect x="36" y="218" width="192" height="24" rx="6" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.3)" strokeWidth="0.5" />
+        <text x="44" y="234" fontFamily="Inter, sans-serif" fontSize="8" fill="#6ee7b7" fontWeight="600">Elasticity Score: +18.4% Demand</text>
+
+        {/* Pricing Optimization Graph */}
+        <rect x="252" y="24" width="204" height="252" rx="8" fill="rgba(13,17,23,0.85)" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+        <text x="266" y="48" fontFamily="Inter, sans-serif" fontSize="10" fill="rgba(248,250,252,0.85)" fontWeight="700">Dynamic Pricing Curve</text>
+        <path d="M 266 180 Q 316 90, 366 110 T 436 140" fill="none" stroke="#10b981" strokeWidth="2.5" />
+        <circle cx="366" cy="110" r="5" fill="#34d399" stroke="#fff" strokeWidth="1.5" />
+        <rect x="331" y="74" width="70" height="24" rx="4" fill="rgba(16,185,129,0.2)" stroke="#10b981" strokeWidth="0.5" />
+        <text x="336" y="90" fontFamily="monospace" fontSize="9" fill="#34d399" fontWeight="700">Opt: $52.50</text>
+        <rect x="266" y="210" width="176" height="50" rx="6" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
+        <text x="276" y="228" fontFamily="Inter, sans-serif" fontSize="8" fill="rgba(148,163,184,0.8)">Forecast Revenue Lift</text>
+        <text x="276" y="248" fontFamily="Inter, sans-serif" fontSize="13" fill="#34d399" fontWeight="800">+14.2% Margin</text>
+      </svg>
+    );
+  }
+
   if (id === 'intelliprocure-ai') {
     return (
       <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" className="project-preview-svg" aria-hidden="true">
