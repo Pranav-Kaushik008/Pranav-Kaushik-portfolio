@@ -3,7 +3,7 @@ export const experiences = [
     "id": "kenai-technologies",
     "company": "Kenai Technologies",
     "role": "AI/ML Developer / Engineer",
-    "period": "July 2026 - Present",
+    "period": "June 2026 - Present",
     "type": "Internship",
     "description": "Developing AI/ML products and intelligent applications at Kenai Technologies, contributing across the full stack from model development to production-grade API integration.",
     "responsibilities": [
