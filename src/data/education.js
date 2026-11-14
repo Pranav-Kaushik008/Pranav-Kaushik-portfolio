@@ -5,7 +5,7 @@ export const education = [
     "abbreviation": "B.E.",
     "field": "Information Science and Engineering",
     "institution": "SJC Institute Of Technology",
-    "cgpa": "8.83 / 10",
+    "cgpa": "8.69 / 10",
     "status": "Graduate"
   }
 ];
