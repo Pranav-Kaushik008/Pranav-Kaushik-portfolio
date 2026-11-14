@@ -21,22 +21,51 @@ export function useScrollReveal(options = {}) {
       });
     }, defaultOptions);
 
-    // Initial scan
+    // Initial scan and observation
     const scan = () => {
       const elements = document.querySelectorAll('.reveal:not(.visible)');
-      elements.forEach((el) => observer.observe(el));
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+        observer.observe(el);
+        // Instant check if already in viewport
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= windowHeight + 100 && rect.bottom >= -50) {
+          el.classList.add('visible');
+          observer.unobserve(el);
+        }
+      });
     };
 
     scan();
 
-    // Re-scan after a short delay in case some components rendered late
-    const t1 = setTimeout(scan, 300);
-    const t2 = setTimeout(scan, 800);
+    // Re-scan on scroll and resize as a robust fallback
+    const handleScrollOrResize = () => {
+      const elements = document.querySelectorAll('.reveal:not(.visible)');
+      const windowHeight = window.innerHeight;
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= windowHeight + 100 && rect.bottom >= -50) {
+          el.classList.add('visible');
+          observer.unobserve(el);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScrollOrResize, { passive: true });
+    window.addEventListener('resize', handleScrollOrResize, { passive: true });
+
+    // Periodic scans for late-rendered items
+    const t1 = setTimeout(scan, 200);
+    const t2 = setTimeout(scan, 600);
+    const t3 = setTimeout(scan, 1200);
 
     return () => {
       observer.disconnect();
+      window.removeEventListener('scroll', handleScrollOrResize);
+      window.removeEventListener('resize', handleScrollOrResize);
       clearTimeout(t1);
       clearTimeout(t2);
+      clearTimeout(t3);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

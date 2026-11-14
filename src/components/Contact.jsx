@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
 import { Mail, ArrowUpRight } from 'lucide-react';
 import profile from '../data/profile';
 import './Contact.css';
 
 export default function Contact() {
+  useEffect(() => {
+    // Ensure all elements in Contact are immediately visible on mount
+    const elements = document.querySelectorAll('#contact .reveal');
+    elements.forEach((el) => el.classList.add('visible'));
+  }, []);
+
   return (
     <section className="contact section" id="contact" aria-label="Contact">
       <div className="container">
         {/* Headline */}
-        <div className="contact__hero reveal">
+        <div className="contact__hero reveal visible">
           <span className="eyebrow">Get in Touch</span>
           <h2 className="contact__headline">
             Let&apos;s build something
@@ -20,7 +27,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Links Card Box */}
-        <div className="contact__card-wrapper reveal">
+        <div className="contact__card-wrapper reveal visible">
           <a
             href={`mailto:${profile.email}`}
             className="contact-card"

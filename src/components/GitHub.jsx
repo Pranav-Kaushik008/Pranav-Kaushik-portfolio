@@ -57,7 +57,7 @@ export default function GitHub() {
                     <span className="repo-card__name">{project.title}</span>
                     <ArrowRight size={12} className="repo-card__arrow" />
                   </div>
-                  <p className="repo-card__description">{project.description.slice(0, 90)}...</p>
+                  <p className="repo-card__description">{(project.description || '').slice(0, 90)}...</p>
                   <div className="repo-card__meta">
                     <span className="repo-card__lang">
                       <span className="repo-card__lang-dot" />
